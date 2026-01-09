@@ -16,6 +16,7 @@ export default {
       fontFamily: {
         display: ['Syne', 'sans-serif'],
         body: ['Space Grotesk', 'sans-serif'],
+        hero: ['Bebas Neue', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
