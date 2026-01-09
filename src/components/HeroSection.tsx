@@ -176,11 +176,7 @@ Razeen<br />
           }} className={`floating-icon w-12 h-12 md:w-14 md:h-14 ${tool.position} animate-float`} style={{
             animationDelay: `${index * 0.5}s`
           }}>
-                <span className="font-display text-sm font-bold" style={{
-              color: tool.color
-            }}>
-                  {tool.name}
-                </span>
+                
               </motion.div>)}
           </motion.div>
         </div>
