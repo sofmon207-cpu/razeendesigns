@@ -2,27 +2,26 @@ import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import designerPhoto from '@/assets/designer-photo.png';
-const toolIcons = [{
-  name: 'Ai',
-  color: '#FF9A00',
-  position: 'top-[10%] left-[5%]'
-}, {
-  name: 'Ps',
-  color: '#31A8FF',
-  position: 'top-[25%] right-[8%]'
-}, {
-  name: 'Xd',
-  color: '#FF61F6',
-  position: 'top-[60%] right-[2%]'
-}, {
-  name: 'Fg',
-  color: '#A259FF',
-  position: 'bottom-[15%] right-[15%]'
-}, {
-  name: 'Sk',
-  color: '#F7B500',
-  position: 'bottom-[10%] left-[10%]'
-}];
+const toolIcons = [
+  {
+    name: 'Ps',
+    fullName: 'Photoshop',
+    color: '#31A8FF',
+    position: 'top-[10%] right-[5%]'
+  },
+  {
+    name: 'Ai',
+    fullName: 'Illustrator',
+    color: '#FF9A00',
+    position: 'bottom-[25%] right-[0%]'
+  },
+  {
+    name: 'Cv',
+    fullName: 'Canva',
+    color: '#00C4CC',
+    position: 'bottom-[15%] left-[5%]'
+  }
+];
 const HeroSection = () => {
   return <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background gradient */}
@@ -141,15 +140,15 @@ Razeen<br />
           ease: 'easeOut'
         }} className="relative flex items-center justify-center">
             {/* Glowing circles */}
-            <div className="absolute w-[350px] h-[350px] md:w-[450px] md:h-[450px] rounded-full bg-primary/20 blur-3xl" />
-            <div className="absolute w-[280px] h-[280px] md:w-[380px] md:h-[380px] rounded-full bg-primary/30 blur-2xl" />
-            <div className="absolute w-[200px] h-[200px] md:w-[300px] md:h-[300px] rounded-full bg-primary/50" />
+            <div className="absolute w-[300px] h-[300px] md:w-[380px] md:h-[380px] rounded-full bg-primary/20 blur-3xl" />
+            <div className="absolute w-[260px] h-[260px] md:w-[340px] md:h-[340px] rounded-full bg-primary/30 blur-2xl" />
+            <div className="absolute w-[220px] h-[220px] md:w-[300px] md:h-[300px] rounded-full bg-primary/40" />
 
             {/* Orbit rings */}
-            <div className="orbit-ring w-[400px] h-[400px] md:w-[500px] md:h-[500px] animate-orbit" />
-            <div className="orbit-ring w-[320px] h-[320px] md:w-[420px] md:h-[420px] animate-orbit-reverse" />
+            <div className="orbit-ring w-[380px] h-[380px] md:w-[480px] md:h-[480px] animate-orbit" />
+            <div className="orbit-ring w-[300px] h-[300px] md:w-[400px] md:h-[400px] animate-orbit-reverse" />
 
-            {/* Designer photo */}
+            {/* Designer photo with circular mask */}
             <motion.div initial={{
             y: 50,
             opacity: 0
@@ -159,25 +158,46 @@ Razeen<br />
           }} transition={{
             delay: 0.5,
             duration: 0.8
-          }} className="relative z-10">
-              <img alt="Designer" className="w-[280px] md:w-[350px] relative z-10 object-cover" src="/lovable-uploads/aa17b3e5-4c08-4eef-bd14-4e9d039fc44c.png" />
+          }} className="relative z-10 rounded-full overflow-hidden w-[200px] h-[200px] md:w-[280px] md:h-[280px] border-4 border-primary/40 shadow-[0_0_40px_rgba(205,255,50,0.3)]">
+              <img 
+                alt="Shah Razeen - Graphic Designer" 
+                className="w-full h-full object-cover object-top scale-110" 
+                src="/lovable-uploads/aa17b3e5-4c08-4eef-bd14-4e9d039fc44c.png" 
+              />
             </motion.div>
 
             {/* Floating tool icons */}
-            {toolIcons.map((tool, index) => <motion.div key={tool.name} initial={{
-            opacity: 0,
-            scale: 0
-          }} animate={{
-            opacity: 1,
-            scale: 1
-          }} transition={{
-            delay: 1 + index * 0.1,
-            type: 'spring'
-          }} className={`floating-icon w-12 h-12 md:w-14 md:h-14 ${tool.position} animate-float`} style={{
-            animationDelay: `${index * 0.5}s`
-          }}>
-                
-              </motion.div>)}
+            {toolIcons.map((tool, index) => (
+              <motion.div 
+                key={tool.name} 
+                initial={{
+                  opacity: 0,
+                  scale: 0
+                }} 
+                animate={{
+                  opacity: 1,
+                  scale: 1
+                }} 
+                transition={{
+                  delay: 1 + index * 0.1,
+                  type: 'spring'
+                }} 
+                className={`floating-icon w-14 h-14 md:w-16 md:h-16 ${tool.position} animate-float flex items-center justify-center`} 
+                style={{
+                  animationDelay: `${index * 0.5}s`,
+                  background: `linear-gradient(135deg, ${tool.color}20, ${tool.color}40)`,
+                  borderColor: tool.color,
+                  boxShadow: `0 0 20px ${tool.color}40`
+                }}
+              >
+                <span 
+                  className="font-display font-bold text-lg md:text-xl"
+                  style={{ color: tool.color }}
+                >
+                  {tool.name}
+                </span>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
 
