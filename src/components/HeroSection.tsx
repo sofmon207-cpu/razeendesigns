@@ -2,26 +2,22 @@ import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import designerPhoto from '@/assets/designer-photo.png';
-const toolIcons = [
-  {
-    name: 'Ps',
-    fullName: 'Photoshop',
-    color: '#31A8FF',
-    position: 'top-[10%] right-[5%]'
-  },
-  {
-    name: 'Ai',
-    fullName: 'Illustrator',
-    color: '#FF9A00',
-    position: 'bottom-[25%] right-[0%]'
-  },
-  {
-    name: 'Cv',
-    fullName: 'Canva',
-    color: '#00C4CC',
-    position: 'bottom-[15%] left-[5%]'
-  }
-];
+const toolIcons = [{
+  name: 'Ps',
+  fullName: 'Photoshop',
+  color: '#31A8FF',
+  position: 'top-[10%] right-[5%]'
+}, {
+  name: 'Ai',
+  fullName: 'Illustrator',
+  color: '#FF9A00',
+  position: 'bottom-[25%] right-[0%]'
+}, {
+  name: 'Cv',
+  fullName: 'Canva',
+  color: '#00C4CC',
+  position: 'bottom-[15%] left-[5%]'
+}];
 const HeroSection = () => {
   return <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background gradient */}
@@ -71,7 +67,8 @@ const HeroSection = () => {
             duration: 0.8
           }} className="leading-none tracking-wide">
               <span className="font-hero text-7xl md:text-9xl lg:text-[10rem]">SHAH RAZEEN</span><br />
-              <span className="text-gradient font-display text-5xl md:text-7xl lg:text-8xl font-bold">Designer</span>
+              <span className="text-gradient font-display md:text-7xl lg:text-8xl font-bold text-4xl">Graphic
+Designer</span>
             </motion.h1>
 
             <motion.p initial={{
@@ -159,45 +156,31 @@ const HeroSection = () => {
             delay: 0.5,
             duration: 0.8
           }} className="relative z-10 rounded-full overflow-hidden w-[200px] h-[200px] md:w-[280px] md:h-[280px] border-4 border-primary/40 shadow-[0_0_40px_rgba(205,255,50,0.3)]">
-              <img 
-                alt="Shah Razeen - Graphic Designer" 
-                className="w-full h-full object-cover object-top scale-110" 
-                src="/lovable-uploads/aa17b3e5-4c08-4eef-bd14-4e9d039fc44c.png" 
-              />
+              <img alt="Shah Razeen - Graphic Designer" className="w-full h-full object-cover object-top scale-110" src="/lovable-uploads/0596875a-c388-45b5-bda4-54c984147d19.png" />
             </motion.div>
 
             {/* Floating tool icons */}
-            {toolIcons.map((tool, index) => (
-              <motion.div 
-                key={tool.name} 
-                initial={{
-                  opacity: 0,
-                  scale: 0
-                }} 
-                animate={{
-                  opacity: 1,
-                  scale: 1
-                }} 
-                transition={{
-                  delay: 1 + index * 0.1,
-                  type: 'spring'
-                }} 
-                className={`floating-icon w-14 h-14 md:w-16 md:h-16 ${tool.position} animate-float flex items-center justify-center`} 
-                style={{
-                  animationDelay: `${index * 0.5}s`,
-                  background: `linear-gradient(135deg, ${tool.color}20, ${tool.color}40)`,
-                  borderColor: tool.color,
-                  boxShadow: `0 0 20px ${tool.color}40`
-                }}
-              >
-                <span 
-                  className="font-display font-bold text-lg md:text-xl"
-                  style={{ color: tool.color }}
-                >
+            {toolIcons.map((tool, index) => <motion.div key={tool.name} initial={{
+            opacity: 0,
+            scale: 0
+          }} animate={{
+            opacity: 1,
+            scale: 1
+          }} transition={{
+            delay: 1 + index * 0.1,
+            type: 'spring'
+          }} className={`floating-icon w-14 h-14 md:w-16 md:h-16 ${tool.position} animate-float flex items-center justify-center`} style={{
+            animationDelay: `${index * 0.5}s`,
+            background: `linear-gradient(135deg, ${tool.color}20, ${tool.color}40)`,
+            borderColor: tool.color,
+            boxShadow: `0 0 20px ${tool.color}40`
+          }}>
+                <span className="font-display font-bold text-lg md:text-xl" style={{
+              color: tool.color
+            }}>
                   {tool.name}
                 </span>
-              </motion.div>
-            ))}
+              </motion.div>)}
           </motion.div>
         </div>
 
