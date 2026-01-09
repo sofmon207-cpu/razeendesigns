@@ -160,7 +160,7 @@ Razeen<br />
             delay: 0.5,
             duration: 0.8
           }} className="relative z-10">
-              <img src={designerPhoto} alt="Designer" className="w-[280px] md:w-[350px] object-contain relative z-10" />
+              <img alt="Designer" className="w-[280px] md:w-[350px] relative z-10 object-cover" src="/lovable-uploads/aa17b3e5-4c08-4eef-bd14-4e9d039fc44c.png" />
             </motion.div>
 
             {/* Floating tool icons */}
