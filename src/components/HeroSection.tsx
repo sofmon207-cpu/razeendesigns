@@ -69,8 +69,8 @@ const HeroSection = () => {
           }} transition={{
             delay: 0.3,
             duration: 0.8
-          }} className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-tight">SHAH
-Razeen<br />
+          }} className="font-display text-6xl md:text-8xl lg:text-9xl font-black leading-none tracking-tight">
+              SHAH RAZEEN<br />
               <span className="text-gradient">Designer</span>
             </motion.h1>
 
