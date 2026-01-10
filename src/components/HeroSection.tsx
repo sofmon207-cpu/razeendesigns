@@ -111,15 +111,15 @@ Designer</span>
             delay: 0.9
           }} className="flex gap-12 pt-8">
               <div>
-                <p className="font-display text-4xl font-bold text-primary">5+</p>
+                <p className="font-display text-4xl font-bold text-primary">3+</p>
                 <p className="font-body text-sm text-muted-foreground">Years Experience</p>
               </div>
               <div>
-                <p className="font-display text-4xl font-bold text-primary">100+</p>
+                <p className="font-display text-4xl font-bold text-primary">20+</p>
                 <p className="font-body text-sm text-muted-foreground">Projects Done</p>
               </div>
               <div>
-                <p className="font-display text-4xl font-bold text-primary">50+</p>
+                <p className="font-display text-4xl font-bold text-primary">5+</p>
                 <p className="font-body text-sm text-muted-foreground">Happy Clients</p>
               </div>
             </motion.div>
