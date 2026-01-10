@@ -9,20 +9,20 @@ interface NavLink {
   isRoute?: boolean;
 }
 const navLinks: NavLink[] = [{
-  href: '#home',
+  href: '/#home',
   label: 'Home'
-}, {
-  href: '#about',
-  label: 'About'
 }, {
   href: '/my-work',
   label: 'My Work',
   isRoute: true
 }, {
-  href: '#services',
+  href: '/#about',
+  label: 'About'
+}, {
+  href: '/#services',
   label: 'Services'
 }, {
-  href: '#contact',
+  href: '/#contact',
   label: 'Contact'
 }];
 const Navigation = () => {
