@@ -1,16 +1,25 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-const navLinks = [{
+
+interface NavLink {
+  href: string;
+  label: string;
+  isRoute?: boolean;
+}
+
+const navLinks: NavLink[] = [{
   href: '#home',
   label: 'Home'
 }, {
   href: '#about',
   label: 'About'
 }, {
-  href: '#work',
-  label: 'Work'
+  href: '/my-work',
+  label: 'My Work',
+  isRoute: true
 }, {
   href: '#services',
   label: 'Services'
@@ -44,10 +53,19 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map(link => <a key={link.href} href={link.href} className="relative font-body text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 group">
-                {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-              </a>)}
+            {navLinks.map(link => 
+              link.isRoute ? (
+                <Link key={link.href} to={link.href} className="relative font-body text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 group">
+                  {link.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                </Link>
+              ) : (
+                <a key={link.href} href={link.href} className="relative font-body text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 group">
+                  {link.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                </a>
+              )
+            )}
             <Button variant="hero" size="sm">
               Hire Me
             </Button>
@@ -72,9 +90,17 @@ const Navigation = () => {
       y: -20
     }} className="md:hidden bg-background/95 backdrop-blur-lg border-t border-border">
           <div className="px-6 py-6 space-y-4">
-            {navLinks.map(link => <a key={link.href} href={link.href} onClick={() => setIsOpen(false)} className="block font-body text-lg text-muted-foreground hover:text-foreground transition-colors">
-                {link.label}
-              </a>)}
+            {navLinks.map(link => 
+              link.isRoute ? (
+                <Link key={link.href} to={link.href} onClick={() => setIsOpen(false)} className="block font-body text-lg text-muted-foreground hover:text-foreground transition-colors">
+                  {link.label}
+                </Link>
+              ) : (
+                <a key={link.href} href={link.href} onClick={() => setIsOpen(false)} className="block font-body text-lg text-muted-foreground hover:text-foreground transition-colors">
+                  {link.label}
+                </a>
+              )
+            )}
             <Button variant="hero" size="lg" className="w-full mt-4">
               Hire Me
             </Button>

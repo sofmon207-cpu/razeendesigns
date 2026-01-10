@@ -203,6 +203,9 @@ Designer</span>
           </motion.div>
         </motion.div>
       </div>
+      
+      {/* Empty spacer below hero content */}
+      <div className="h-32 md:h-48" />
     </section>;
 };
 export default HeroSection;
