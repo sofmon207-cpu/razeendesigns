@@ -67,8 +67,7 @@ const HeroSection = () => {
             duration: 0.8
           }} className="leading-none tracking-wide">
               <span className="font-hero text-7xl md:text-9xl lg:text-[10rem]">SHAH RAZEEN</span><br />
-              <span className="text-gradient font-display md:text-7xl lg:text-8xl font-bold text-4xl">Graphic
-Designer</span>
+              <span className="text-gradient font-display text-3xl font-bold">Graphic Designer</span>
             </motion.h1>
 
             <motion.p initial={{
@@ -109,7 +108,7 @@ Designer</span>
             y: 0
           }} transition={{
             delay: 0.9
-          }} className="flex gap-12 pt-8">
+          }} className="flex gap-12 pt-8 pb-12">
               <div>
                 <p className="font-display text-4xl font-bold text-primary">3+</p>
                 <p className="font-body text-sm text-muted-foreground">Years Experience</p>
