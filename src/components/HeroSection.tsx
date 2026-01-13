@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 import designerPhoto from '@/assets/designer-photo.png';
 const toolIcons = [{
   name: 'Ps',
@@ -91,10 +92,17 @@ const HeroSection = () => {
           }} transition={{
             delay: 0.7
           }} className="flex flex-wrap gap-4">
-              <Button variant="hero" size="xl">
-                View Work
-              </Button>
-              <Button variant="heroOutline" size="xl">
+              <Link to="/my-work">
+                <Button variant="hero" size="xl">
+                  View Work
+                </Button>
+              </Link>
+              <Button variant="heroOutline" size="xl" onClick={() => {
+                const element = document.getElementById('contact');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}>
                 Contact Me
               </Button>
             </motion.div>
