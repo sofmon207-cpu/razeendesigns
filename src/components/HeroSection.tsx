@@ -174,9 +174,9 @@ const HeroSection = () => {
             borderColor: tool.color,
             boxShadow: `0 0 20px ${tool.color}40`
           }}>
-                <span className="font-display font-bold text-xl md:text-2xl" style={{
+                <span style={{
               color: tool.color
-            }}>
+            }} className="font-display font-bold text-xl md:text-lg">
                   {tool.name}
                 </span>
               </motion.div>)}
