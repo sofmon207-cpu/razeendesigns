@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+
 interface NavLink {
   href: string;
   label: string;
   isRoute?: boolean;
 }
+
 const navLinks: NavLink[] = [{
   href: '/#home',
   label: 'Home'
@@ -25,9 +27,13 @@ const navLinks: NavLink[] = [{
   href: '/#contact',
   label: 'Contact'
 }];
+
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -35,6 +41,23 @@ const Navigation = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('/#')) {
+      const sectionId = href.replace('/#', '');
+      
+      if (location.pathname === '/') {
+        // Already on home page, just scroll
+        e.preventDefault();
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+      // If not on home page, let the Link navigate to /#section
+    }
+  };
+
   return <motion.nav initial={{
     y: -100
   }} animate={{
@@ -50,7 +73,7 @@ const Navigation = () => {
             {navLinks.map(link => link.isRoute ? <Link key={link.href} to={link.href} className="relative font-body text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 group">
                   {link.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-                </Link> : <Link key={link.href} to={link.href} className="relative font-body text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 group">
+                </Link> : <Link key={link.href} to={link.href} onClick={(e) => handleNavClick(e, link.href)} className="relative font-body text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 group">
                   {link.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
                 </Link>)}
@@ -78,7 +101,10 @@ const Navigation = () => {
       y: -20
     }} className="md:hidden bg-background/95 backdrop-blur-lg border-t border-border">
           <div className="px-6 py-6 space-y-4">
-            {navLinks.map(link => <Link key={link.href} to={link.href} onClick={() => setIsOpen(false)} className="block font-body text-lg text-muted-foreground hover:text-foreground transition-colors">
+            {navLinks.map(link => <Link key={link.href} to={link.href} onClick={(e) => {
+              handleNavClick(e, link.href);
+              setIsOpen(false);
+            }} className="block font-body text-lg text-muted-foreground hover:text-foreground transition-colors">
                   {link.label}
                 </Link>)}
             <Button variant="hero" size="lg" className="w-full mt-4">
