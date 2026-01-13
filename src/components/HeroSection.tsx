@@ -13,7 +13,7 @@ const toolIcons = [{
   color: '#FF9A00',
   position: 'bottom-[25%] right-[0%]'
 }, {
-  name: 'Cv',
+  name: 'Canva',
   fullName: 'Canva',
   color: '#00C4CC',
   position: 'bottom-[15%] left-[5%]'
