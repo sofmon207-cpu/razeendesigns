@@ -170,9 +170,9 @@ const HeroSection = () => {
             type: 'spring'
           }} className={`floating-icon w-16 h-16 md:w-20 md:h-20 ${tool.position} animate-float flex items-center justify-center`} style={{
             animationDelay: `${index * 0.5}s`,
-            background: `linear-gradient(135deg, ${tool.color}20, ${tool.color}40)`,
+            background: `linear-gradient(135deg, ${tool.color}35, ${tool.color}55)`,
             borderColor: tool.color,
-            boxShadow: `0 0 20px ${tool.color}40`
+            boxShadow: `0 0 20px ${tool.color}50`
           }}>
                 <span style={{
               color: tool.color
