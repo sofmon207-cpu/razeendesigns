@@ -77,7 +77,12 @@ const Navigation = () => {
                   {link.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
                 </Link>)}
-            <Button variant="hero" size="sm">
+            <Button variant="hero" size="sm" onClick={() => {
+              const element = document.getElementById('contact');
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}>
               Hire Me
             </Button>
           </div>
@@ -107,7 +112,13 @@ const Navigation = () => {
             }} className="block font-body text-lg text-muted-foreground hover:text-foreground transition-colors">
                   {link.label}
                 </Link>)}
-            <Button variant="hero" size="lg" className="w-full mt-4">
+            <Button variant="hero" size="lg" className="w-full mt-4" onClick={() => {
+              setIsOpen(false);
+              const element = document.getElementById('contact');
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}>
               Hire Me
             </Button>
           </div>
